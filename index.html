@@ -22,7 +22,7 @@
 	</head>
 
 	<body>
-		<header class="header">
+		<header class="page-header">
 			<!--Navigation menu-->
 			<div class="container header-nav">
 				<nav class="navigation">
@@ -57,9 +57,14 @@
 		<main>
 			<!--Hero-->
 			<section class="hero">
+				<div class="backdrop is-hidden" data-backdrop>
+					<div class="modal">
+						<button data-close-modal>Close</button>
+					</div>
+				</div>
 				<div class="container">
 					<h1 class="hero-header">Effective Solutions for Your Business</h1>
-					<button class="hero-button" type="button">Order Service</button>
+					<button data-open-modal class="hero-button" type="button">Order Service</button>
 				</div>
 			</section>
 
@@ -471,5 +476,32 @@
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			const { height: pageHeaderHeight } = document.querySelector(".page-header").getBoundingClientRect();
+
+			document.body.style.paddingTop = `${pageHeaderHeight}px`;
+		</script>
+
+		<script>
+			const refs = {
+				openModalBtn: document.querySelector("[data-open-modal]"),
+				closeModalBtn: document.querySelector("[data-close-modal"),
+				backdrop: document.querySelector("[data-backdrop]"),
+			};
+
+			refs.openModalBtn.addEventListener("click", toggleModal);
+			refs.closeModalBtn.addEventListener("click", toggleModal);
+
+			refs.backdrop.addEventListener("click", logBackdropClick);
+
+			function toggleModal() {
+				refs.backdrop.classList.toggle("is-hidden");
+			}
+
+			function logBackdropClick() {
+				console.log("Thats backdrop click");
+			}
+		</script>
 	</body>
 </html>

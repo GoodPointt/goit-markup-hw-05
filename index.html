@@ -57,14 +57,18 @@
 		<main>
 			<!--Hero-->
 			<section class="hero">
-				<div class="backdrop is-hidden" data-backdrop>
+				<div class="backdrop is-hidden" data-modal>
 					<div class="modal">
-						<button data-close-modal>Close</button>
+						<button data-modal-close class="close-modal">
+							<svg width="8" height="8" class="svg-close">
+								<use xlink:href="./images/close-modal.svg"></use>
+							</svg>
+						</button>
 					</div>
 				</div>
 				<div class="container">
 					<h1 class="hero-header">Effective Solutions for Your Business</h1>
-					<button data-open-modal class="hero-button" type="button">Order Service</button>
+					<button data-modal-open class="hero-button" type="button">Order Service</button>
 				</div>
 			</section>
 
@@ -483,25 +487,6 @@
 			document.body.style.paddingTop = `${pageHeaderHeight}px`;
 		</script>
 
-		<script>
-			const refs = {
-				openModalBtn: document.querySelector("[data-open-modal]"),
-				closeModalBtn: document.querySelector("[data-close-modal"),
-				backdrop: document.querySelector("[data-backdrop]"),
-			};
-
-			refs.openModalBtn.addEventListener("click", toggleModal);
-			refs.closeModalBtn.addEventListener("click", toggleModal);
-
-			refs.backdrop.addEventListener("click", logBackdropClick);
-
-			function toggleModal() {
-				refs.backdrop.classList.toggle("is-hidden");
-			}
-
-			function logBackdropClick() {
-				console.log("Thats backdrop click");
-			}
-		</script>
+		<script src="./js/modal.js"></script>
 	</body>
 </html>

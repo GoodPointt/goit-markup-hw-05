@@ -262,15 +262,37 @@ a {
 	opacity: 0;
 	pointer-events: none;
 }
+
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(0.9);
+}
+
 .modal {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(1);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 	height: 150px;
 	width: 100px;
-	background-color: #fff;
+	background-color: var(--bg-color);
+
+	width: 408px;
+	height: 576px;
+	padding: 24px;
+}
+
+.close-modal {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-left: auto;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	background-color: var(--accent);
+	fill: #000;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* MAIN */
@@ -552,7 +574,8 @@ a {
 	color: var(--secondary-color);
 	background-color: var(--accent-color);
 }
-.box:hover .overlay {
+.card-link:hover .overlay,
+.card-link:focus .overlay {
 	transform: translateY(0);
 	opacity: 0.8;
 }

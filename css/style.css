@@ -323,6 +323,11 @@ button {
 	padding: 24px;
 }
 
+.backdrop.is-hidden .close-modal {
+	transform: translateX(-500px);
+	opacity: 0;
+}
+
 .close-modal {
 	display: flex;
 	align-items: center;
@@ -339,7 +344,7 @@ button {
 
 	transition-duration: 250ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-property: fill, background-color;
+	transition-property: fill, background-color, transform, opacity;
 }
 
 .close-modal:hover,

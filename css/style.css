@@ -303,6 +303,7 @@ button {
 
 .backdrop.is-hidden .modal {
 	transform: translate(-50%, -50%) scale(0.1);
+	opacity: 0;
 }
 
 .modal {
@@ -310,12 +311,15 @@ button {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) scale(1);
+	opacity: 1;
 
 	transition-duration: 250ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-property: transform;
+	transition-property: transform, opacity;
 
-	background-color: var(--bg-color);
+	background: #fcfcfc;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
 
 	width: 408px;
 	height: 576px;
@@ -334,9 +338,11 @@ button {
 	border-radius: 50%;
 	fill: #000;
 
+	opacity: 1;
+
 	transition-duration: 250ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-property: transform, fill, background-color;
+	transition-property: fill, background-color;
 }
 
 .close-modal:hover,
@@ -553,7 +559,8 @@ button {
 }
 
 /*========================== PORTFOLIO PAGE =============================*/
-/* FILTERS */
+
+/*========================== FILTERS ============================*/
 .filter-btn {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
@@ -576,7 +583,7 @@ button {
 
 .filter-btn:hover,
 .filter-btn:focus {
-	color: #ffffff;
+	color: var(--bg-color);
 	background-color: var(--accent-color);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 	border: 1px solid var(--accent-color);
@@ -664,6 +671,9 @@ button {
 .card-list .card-item:nth-last-child(-n + 3) {
 	margin-bottom: 0px;
 }
+.stylish-txt {
+	color: var(--secondary-color);
+}
 
 /* .card-item:not(:nth-last-child(-n + 3)) {
 	margin-bottom: 40px;
@@ -673,8 +683,4 @@ button {
 } */
 
 .card-img {
-}
-
-.stylish-txt {
-	color: var(--secondary-color);
 }

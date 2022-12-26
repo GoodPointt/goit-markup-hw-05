@@ -324,7 +324,6 @@ button {
 }
 
 .backdrop.is-hidden .close-modal {
-	transform: translateX(-500px);
 	opacity: 0;
 }
 
@@ -341,16 +340,15 @@ button {
 	fill: #000;
 
 	opacity: 1;
-
-	transition-duration: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-property: fill, background-color, transform, opacity;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		transform 2500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-modal:hover,
 .close-modal:focus {
 	background-color: var(--accent-color);
 	fill: var(--bg-color);
+	transform: rotateZ(360deg);
 }
 
 /*======================= MAIN-CONTENT ==========================*/
